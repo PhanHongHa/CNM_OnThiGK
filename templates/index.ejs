@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="index.css">
+  </head>
+
+  <body>
+    <h1>Danh Sách ...</h1>
+    <form action="/them">
+      <input class="btn" type="submit" value="Add" />
+    </form>
+    <form method="POST" action="/delete" enctype="multipart/form-data">
+      <table>
+        <tr>
+          <th>STT</th>
+          <th>Tên Bài Báo</th>
+          <th>Tên Tác Giả</th>
+          <th>Chỉ Số ISBN</th>
+          <th>Số Trang</th>
+          <th>Năm Xuất Bản</th>
+          <th></th>
+        </tr>
+        <% for(let i=0; i < data.length; i++) { %>
+        <tr>
+          <td><%= i+1 %></td>
+          <td><%= data[i]["tenBaiBao"] %></td>
+          <td><%= data[i]["tenTacGia"] %></td>
+          <td><%= data[i]["chiSoISBN"] %></td>
+          <td><%= data[i]["soTrang"] %></td>
+          <td><%= data[i]["namXuatBan"] %></td>
+          <td><input type="checkbox" name="<%=data[i]["id"]%>" /></td>
+        </tr>
+        <% } %>
+      </table>
+      <input class="btn" type="submit" value="Delete" />
+    </form>
+    
+  </body>
+</html>
